@@ -1,0 +1,13 @@
+#!/bin/bash
+
+declare -a arr=("la_muse" "rain_princess" "scream" "udnie" "wave" "wreck")
+declare -a arr2=("1" "2" "3" "4")
+
+for i in "${arr[@]}"
+do 
+	for j in "${arr2[@]}"
+	do
+		echo "python evaluate.py --checkpoint ./data/models/$i.ckpt --in-path ./runs/content/GarbagePeople$j.jpg --out-path ./runs/results/GarbagePeople$j-$i.jpg"
+		eval "python evaluate.py --checkpoint ./data/models/$i.ckpt --in-path ./runs/content/GarbagePeople$j.jpg --out-path ./runs/results/GarbagePeople$j-$i.jpg"
+	done
+done
